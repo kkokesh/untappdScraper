@@ -5,9 +5,9 @@
 """
 
 import argparse
-import geocoder
-import gmplot
-import googlemaps
+# import geocoder
+# import gmplot
+# import googlemaps
 import re
 import requests
 import time
@@ -57,7 +57,7 @@ def get_user_data(passed_user):
     if user1:
         return user1
 
-
+'''
 def get_friend_data(passed_user):
     friends1 = []
     # Parsing user friend information
@@ -70,7 +70,7 @@ def get_friend_data(passed_user):
         friends1.append(u.text.encode('ascii', 'ignore').strip())
     if friends1:
         return friends1
-
+'''
 
 def get_beers_data(passed_user):
     beers_drank = []
@@ -99,7 +99,7 @@ def get_beersonly_data(passed_user):
     if beers_drank:
         return beers_drank
 
-
+'''
 def get_venue_data(passed_user):
     # Parsing check-in location information
     drinkslatslongs = []
@@ -159,7 +159,7 @@ def get_venue_data(passed_user):
         outfile = 'untappd_map_{}_{}.html'.format(args.user, str(int(time.time())))
         gmap.draw(outfile)
         print("\n[ ] HTML output file named {} was written to disk.\n".format(outfile))
-
+'''
 
 ###########################
 # Start
@@ -173,9 +173,9 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 ###############
 user = get_user_data(args.user)
 if user:
-    print('\n        Total Beers:   {:>6}'.format(user[0].text))
-    print('        Total Unique:  {:>6}'.format(user[1].text))
-    print('        Total Badges:  {:>6}'.format(user[2].text))
+    print('\n        {:>6}'.format(user[0].text))
+    print('        {:>6}'.format(user[1].text))
+   ''' print('        Total Badges:  {:>6}'.format(user[2].text))
     print('        Total Friends: {:>6}'.format(user[3].text))
 
 if args.recent:
